@@ -21,6 +21,7 @@ const colors = {
     reset: '\x1b[0m',      // Reset to default color
     green: '\x1b[32m',     // Success messages
     darkGreen: '\x1b[38;5;28m', // Dark green for complexity
+    customHighlight: '\x1b[38;2;224;175;160m', // Hex #e0afa0 for problem name
     red: '\x1b[31m',       // Error messages
     yellow: '\x1b[33m',    // Warnings
     blue: '\x1b[34m',      // Info messages
@@ -116,7 +117,7 @@ function runTests({
     currentComplexity,
     optimalComplexity
 }) {
-    console.log(`\n${colors.cyan}Running tests for: ${problemName}${colors.reset}`);
+    console.log(`\n${colors.customHighlight}Running tests for: ${problemName}${colors.reset}`);
     console.log('━'.repeat(60));
 
     let passed = 0;
