@@ -20,6 +20,7 @@
 const colors = {
     reset: '\x1b[0m',      // Reset to default color
     green: '\x1b[32m',     // Success messages
+    darkGreen: '\x1b[38;5;28m', // Dark green for complexity
     red: '\x1b[31m',       // Error messages
     yellow: '\x1b[33m',    // Warnings
     blue: '\x1b[34m',      // Info messages
@@ -211,8 +212,8 @@ function runTests({
         if (currentComplexity || optimalComplexity) {
             console.log(`${colors.blue}Complexity Analysis:${colors.reset}`);
 
-            const timeInfo = `${colors.green}Time Complexity:  Current ${currentComplexity?.time || 'N/A'} | Optimal ${optimalComplexity?.time || 'N/A'}${colors.reset}`;
-            const spaceInfo = `${colors.green}Space Complexity: Current ${currentComplexity?.space || 'N/A'} | Optimal ${optimalComplexity?.space || 'N/A'}${colors.reset}`;
+            const timeInfo = `${colors.darkGreen}Time Complexity:  Current ${currentComplexity?.time || 'N/A'} | Optimal ${optimalComplexity?.time || 'N/A'}${colors.reset}`;
+            const spaceInfo = `${colors.darkGreen}Space Complexity: Current ${currentComplexity?.space || 'N/A'} | Optimal ${optimalComplexity?.space || 'N/A'}${colors.reset}`;
 
             console.log(timeInfo);
             console.log(spaceInfo);
