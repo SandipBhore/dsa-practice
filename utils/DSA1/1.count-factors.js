@@ -44,8 +44,8 @@ const testCases = [
     {
         name: "Large Number (Max Constraint)",
         input: { A: 1000000000 },
-        expected: 30,
-        description: "Performance test for 10^9"
+        expected: 100,
+        description: "Factors of 10^9 is 100 (2^9 * 5^9 -> 10*10)"
     }
 ];
 
