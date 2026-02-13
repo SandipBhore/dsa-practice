@@ -39,12 +39,14 @@ const testCases = [
         name: "Large Prime",
         input: { A: 999999937 },
         expected: 2,
+        timeLimit: 10, // Must be O(sqrt(A)) to pass
         description: "Check performance and prime handling"
     },
     {
         name: "Large Number (Max Constraint)",
         input: { A: 1000000000 },
         expected: 100,
+        timeLimit: 10, // Must be O(sqrt(A)) to pass
         description: "Factors of 10^9 is 100 (2^9 * 5^9 -> 10*10)"
     }
 ];

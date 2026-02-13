@@ -100,8 +100,21 @@ function formatMemory(bytes) {
  * @param {Function} config.solution - Solution function to test
  * @param {Array} config.testCases - Array of test case objects
  * @param {Function} config.validator - Optional custom validator
+ * @param {number} config.timeLimit - Global time limit in ms (optional)
+ * @param {number} config.memoryLimit - Global memory limit in bytes (optional)
+ * @param {Object} config.currentComplexity - Known complexity of this solution {time, space}
+ * @param {Object} config.optimalComplexity - Best known complexity for this problem {time, space}
  */
-function runTests({ problemName, solution, testCases, validator }) {
+function runTests({
+    problemName,
+    solution,
+    testCases,
+    validator,
+    timeLimit,
+    memoryLimit,
+    currentComplexity,
+    optimalComplexity
+}) {
     console.log(`\n${colors.cyan}Running tests for: ${problemName}${colors.reset}`);
     console.log('━'.repeat(60));
 
@@ -111,7 +124,18 @@ function runTests({ problemName, solution, testCases, validator }) {
 
     // Run each test case
     testCases.forEach((testCase, index) => {
-        const { name, input, expected, description } = testCase;
+        const {
+            name,
+            input,
+            expected,
+            description,
+            timeLimit: tcTimeLimit,
+            memoryLimit: tcMemoryLimit
+        } = testCase;
+
+        // Use test-specific limit or global limit
+        const effectiveTimeLimit = tcTimeLimit || timeLimit;
+        const effectiveMemoryLimit = tcMemoryLimit || memoryLimit;
 
         try {
             // Measure execution time
@@ -137,7 +161,19 @@ function runTests({ problemName, solution, testCases, validator }) {
             if (isCorrect) {
                 passed++;
                 console.log(`${colors.green}✓${colors.reset} ${name}`);
-                console.log(`  ${colors.gray}Time: ${formatTime(executionTime)} | Memory: ${formatMemory(memoryUsed)}${colors.reset}`);
+
+                // Construct metrics line
+                let metrics = `  ${colors.gray}Time: ${formatTime(executionTime)} | Memory: ${formatMemory(memoryUsed)}`;
+
+                // Add warnings if complexity limits are reached
+                if (effectiveTimeLimit && executionTime > effectiveTimeLimit) {
+                    metrics += ` ${colors.yellow}[WARNING: Time limit exceeded (${formatTime(effectiveTimeLimit)})]${colors.reset}`;
+                }
+                if (effectiveMemoryLimit && memoryUsed > effectiveMemoryLimit) {
+                    metrics += ` ${colors.yellow}[WARNING: Memory limit exceeded (${formatMemory(effectiveMemoryLimit)})]${colors.reset}`;
+                }
+
+                console.log(metrics + colors.reset);
             } else {
                 failed++;
                 console.log(`${colors.red}✗${colors.reset} ${name}`);
@@ -169,15 +205,34 @@ function runTests({ problemName, solution, testCases, validator }) {
     // Print summary
     console.log('━'.repeat(60));
     if (failed === 0) {
-        console.log(`${colors.green}✓ All ${passed} tests passed!${colors.reset}`);
+        console.log(`${colors.green}✓ All ${passed} tests passed!${colors.reset}\n`);
+
+        // Print complexity information if available
+        if (currentComplexity || optimalComplexity) {
+            console.log(`${colors.blue}Complexity Analysis:${colors.reset}`);
+
+            const timeInfo = `Time Complexity:  Current ${colors.cyan}${currentComplexity?.time || 'N/A'}${colors.reset} | Optimal ${colors.green}${optimalComplexity?.time || 'N/A'}${colors.reset}`;
+            const spaceInfo = `Space Complexity: Current ${colors.cyan}${currentComplexity?.space || 'N/A'}${colors.reset} | Optimal ${colors.green}${optimalComplexity?.space || 'N/A'}${colors.reset}`;
+
+            console.log(timeInfo);
+            console.log(spaceInfo);
+
+            // Print warning if not optimal
+            if (currentComplexity && optimalComplexity) {
+                if (currentComplexity.time !== optimalComplexity.time || currentComplexity.space !== optimalComplexity.space) {
+                    console.log(`\n${colors.yellow}[TIP] Your solution could be further optimized to match the optimal complexity.${colors.reset}`);
+                }
+            }
+            console.log('');
+        }
     } else {
         console.log(`${colors.red}✗ ${failed} test(s) failed${colors.reset}`);
-        console.log(`${colors.green}✓ ${passed} test(s) passed${colors.reset}`);
+        console.log(`${colors.green}✓ ${passed} test(s) passed${colors.reset}\n`);
     }
 
     // Print performance summary
     const avgTime = results.reduce((sum, r) => sum + r.time, 0) / results.length;
-    console.log(`${colors.gray}Average time: ${formatTime(avgTime)}${colors.reset}`);
+    console.log(`${colors.gray}Average time per test: ${formatTime(avgTime)}${colors.reset}`);
     console.log('');
 
     return { passed, failed, results };

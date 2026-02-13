@@ -85,5 +85,7 @@ runTests({
     problemName: "[TODO: Name]",
     solution: solution1, // Change to test different solutions
     testCases: testCases,
-    validator: validator
+    validator: validator,
+    currentComplexity: { time: '[TODO]', space: '[TODO]' },
+    optimalComplexity: { time: '[TODO]', space: '[TODO]' }
 });

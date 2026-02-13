@@ -53,5 +53,7 @@ runTests({
     problemName: "Count Factors",
     solution: countFactors,
     testCases: testCases,
-    validator: validator
+    validator: validator,
+    currentComplexity: { time: 'O(sqrt(A))', space: 'O(1)' },
+    optimalComplexity: { time: 'O(sqrt(A))', space: 'O(1)' }
 });

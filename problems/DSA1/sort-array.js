@@ -229,5 +229,7 @@ runTests({
     problemName: "Sort an Array",
     solution: sortArrayMergeSort, // Change to test different solutions
     testCases: testCases,
-    validator: validator
+    validator: validator,
+    currentComplexity: { time: 'O(n log n)', space: 'O(n)' },
+    optimalComplexity: { time: 'O(n log n)', space: 'O(n)' }
 });

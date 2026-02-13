@@ -132,5 +132,7 @@ runTests({
     problemName: "Two Sum",
     solution: twoSumHashMap, // Change to twoSumBruteForce to test other solution
     testCases: testCases,
-    validator: validator
+    validator: validator,
+    currentComplexity: { time: 'O(n)', space: 'O(n)' },
+    optimalComplexity: { time: 'O(n)', space: 'O(n)' }
 });
