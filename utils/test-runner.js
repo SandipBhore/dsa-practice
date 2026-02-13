@@ -119,7 +119,9 @@ function runTests({ problemName, solution, testCases, validator }) {
             const startMemory = process.memoryUsage().heapUsed;
 
             // Run the solution
-            const result = solution(input);
+            // Convert input object to array of arguments
+            const inputArgs = Object.values(input);
+            const result = solution(...inputArgs);
 
             const endTime = performance.now();
             const endMemory = process.memoryUsage().heapUsed;
