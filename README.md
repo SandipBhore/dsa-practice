@@ -7,16 +7,14 @@ A production-ready repository for practicing Data Structures and Algorithms with
 ```
 dsa-practice/
 ├── problems/              # All DSA problems organized by category
-│   ├── arrays/           # Array-based problems
-│   ├── strings/          # String manipulation problems
-│   ├── linked-lists/     # Linked list problems
-│   ├── trees/            # Tree and binary tree problems
-│   ├── graphs/           # Graph algorithms
-│   ├── dynamic-programming/  # DP problems
-│   ├── sorting/          # Sorting algorithms
-│   └── searching/        # Search algorithms
+│   └── DSA1/             # Main DSA problem set
+│       ├── arrays/       # Array-based problems
+│       ├── strings/      # String manipulation problems
+│       └── ...           # Other categories
 ├── templates/            # Template files for new problems
-├── utils/                # Helper utilities (test runner, etc.)
+├── utils/                # Helper utilities
+│   ├── DSA1/             # Test cases for DSA1 problems
+│   └── test-runner.js    # Core test runner
 ├── docs/                 # Additional documentation
 └── README.md            # This file
 ```
@@ -76,13 +74,9 @@ function solveProblem(input) {
 ### 4. Run Tests
 ```bash
 # Test a specific problem
-node utils/test-runner.js problems/arrays/two-sum.js
+node problems/DSA1/arrays/two-sum.js
 
-# Test all problems in a category
-node utils/test-runner.js problems/arrays/
-
-# Test everything
-node utils/test-runner.js
+# Note: Test cases are now located in utils/DSA1/
 ```
 
 ### 5. Commit Your Work

@@ -206,21 +206,23 @@ Production-ready repository for practicing Data Structures and Algorithms.
 ```
 dsa-practice/
 ├── problems/    # DSA problems by category
+│   └── DSA1/   # Main problem set
 ├── utils/       # Test runner
+│   └── DSA1/   # Externalized test cases
 └── templates/   # Problem templates
 ```
 
 ## Usage
 ```bash
 # Run tests
-node problems/arrays/two-sum.js
+node problems/DSA1/arrays/two-sum.js
 ```
 
 ## Adding Problems
 ```bash
-cp templates/problem-template.js problems/category/problem.js
+cp templates/problem-template.js problems/DSA1/category/problem.js
 # Edit file, then run:
-node problems/category/problem.js
+node problems/DSA1/category/problem.js
 ```
 ```
 
@@ -334,18 +336,6 @@ if (typeof module !== 'undefined' && module.exports) {
 ```javascript
 /**
  * Problem: [TODO: Name]
- * Difficulty: [TODO: Easy/Medium/Hard]
- * Category: [TODO: Category]
- * 
- * Description:
- * [TODO: Problem statement]
- * 
- * Constraints:
- * - [TODO: List constraints]
- * 
- * Examples:
- * Input: [TODO]
- * Output: [TODO]
  */
 
 function solution1(input) {
@@ -353,21 +343,15 @@ function solution1(input) {
   return result;
 }
 
-const testCases = [
-  {
-    name: "Example 1",
-    input: {},
-    expected: null,
-    description: "TODO"
-  }
-];
-
-const { runTests } = require('../../utils/test-runner');
+// Test cases are externalized to utils/DSA1/
+const { runTests } = require('../../../utils/test-runner');
+const { testCases, validator } = require('../../../utils/DSA1/[CATEGORY]/[NAME]');
 
 runTests({
   problemName: "[TODO: Name]",
   solution: solution1,
-  testCases: testCases
+  testCases: testCases,
+  validator: validator
 });
 ```
 

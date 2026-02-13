@@ -2,7 +2,7 @@
  * PROBLEM TEMPLATE
  * 
  * Copy this file to create new problems:
- * cp templates/problem-template.js problems/[category]/[problem-name].js
+ * cp templates/problem-template.js problems/DSA1/[category]/[problem-name].js
  * 
  * Then fill in all the sections marked with TODO
  */
@@ -24,10 +24,6 @@
  * Input: [TODO: example input]
  * Output: [TODO: example output]
  * Explanation: [TODO: why this is the answer]
- * 
- * Input: [TODO: another example]
- * Output: [TODO: output]
- * Explanation: [TODO: explanation]
  */
 
 // ============================================
@@ -73,73 +69,21 @@ function solution2(input) {
 }
 
 // ============================================
-// TEST CASES
-// ============================================
-const testCases = [
-    // Basic test cases from problem examples
-    {
-        name: "Example 1: [TODO: Description]",
-        input: {}, // TODO: Add input
-        expected: null, // TODO: Add expected output
-        description: "[TODO: Explain this test case]"
-    },
-
-    {
-        name: "Example 2: [TODO: Description]",
-        input: {}, // TODO: Add input
-        expected: null, // TODO: Add expected output
-        description: "[TODO: Explain this test case]"
-    },
-
-    // Edge cases
-    {
-        name: "Edge: Minimum input",
-        input: {}, // TODO: Minimum valid input per constraints
-        expected: null,
-        description: "Test with smallest valid input"
-    },
-
-    {
-        name: "Edge: Maximum input",
-        input: {}, // TODO: Maximum valid input per constraints
-        expected: null,
-        description: "Test with largest valid input"
-    },
-
-    {
-        name: "Edge: Empty input",
-        input: {}, // TODO: Empty array/string if applicable
-        expected: null,
-        description: "Test with empty input"
-    },
-
-    // Corner cases
-    {
-        name: "Corner: [TODO: Special condition]",
-        input: {}, // TODO: Add corner case
-        expected: null,
-        description: "[TODO: Explain why this is a corner case]"
-    },
-
-    // Stress test
-    {
-        name: "Stress: Large input",
-        input: {}, // TODO: Large input near constraint limits
-        expected: null,
-        description: "Test performance with large input"
-    }
-];
-
-// ============================================
 // RUN TESTS
 // ============================================
-// Uncomment to run tests
-/*
-const { runTests } = require('../../utils/test-runner');
+/**
+ * Test cases are now located in:
+ * utils/DSA1/[category]/[problem-name].js
+ * 
+ * 1. Copy an existing test case file or create a new one
+ * 2. Update the require path below
+ */
+const { runTests } = require('../../../utils/test-runner');
+const { testCases, validator } = require('../../../utils/DSA1/[TODO: Category]/[TODO: Name]');
 
 runTests({
-  problemName: "[TODO: Problem Name]",
-  solution: solution1, // Change to test different solutions
-  testCases: testCases
+    problemName: "[TODO: Name]",
+    solution: solution1, // Change to test different solutions
+    testCases: testCases,
+    validator: validator
 });
-*/

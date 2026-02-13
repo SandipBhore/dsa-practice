@@ -24,7 +24,7 @@ Place your problem in the appropriate folder:
 ### Step 2: Use the Template
 ```bash
 # Copy the template
-cp templates/problem-template.js problems/[category]/[problem-name].js
+cp templates/problem-template.js problems/DSA1/[category]/[problem-name].js
 ```
 
 ### Step 3: Fill in the Problem Details
@@ -55,7 +55,8 @@ cp templates/problem-template.js problems/[category]/[problem-name].js
 - **Include alternatives** - Different approaches for learning
 
 ### Step 5: Add Test Cases
-Include these types of test cases:
+Include test cases in a separate file under `utils/DSA1/[category]/[problem-name].js`:
+
 ```javascript
 const testCases = [
   // 1. Basic cases from examples
@@ -65,31 +66,15 @@ const testCases = [
     expected: ...,
     description: "Basic case from problem statement"
   },
-  
-  // 2. Edge cases
-  {
-    name: "Edge: Minimum input",
-    input: {...},
-    expected: ...,
-    description: "Smallest valid input per constraints"
-  },
-  
-  // 3. Corner cases
-  {
-    name: "Corner: All same elements",
-    input: {...},
-    expected: ...,
-    description: "Special condition"
-  },
-  
-  // 4. Stress test
-  {
-    name: "Stress: Large input",
-    input: {...},
-    expected: ...,
-    description: "Input near constraint limits"
-  }
+  // ...
 ];
+
+function validator(result, expected, input) {
+    // Custom validation logic
+    return JSON.stringify(result) === JSON.stringify(expected);
+}
+
+module.exports = { testCases, validator };
 ```
 
 ## 💅 Code Style
