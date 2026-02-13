@@ -1,4 +1,9 @@
 /**
+ * Run this problem:
+ * node problems/DSA1/1.count-factors.js
+ */
+
+/**
  * Problem: Count Factors
  * Difficulty: Easy
  * Category: Math / Number Theory
@@ -20,27 +25,39 @@
 // SOLUTION: O(sqrt(A)) Optimized
 // ============================================
 /**
- * Using the property that factors come in pairs.
- * If 'i' is a factor of A, then A/i is also a factor.
- * We only need to iterate up to sqrt(A).
+ * Optimized Count Factors
  * 
- * Time Complexity: O(sqrt(A))
+ * Approach: Prime Factorization
+ * Total Factors = (a1 + 1) * (a2 + 1) * ... * (ak + 1)
+ * where A = p1^a1 * p2^a2 * ...
+ * 
+ * Time Complexity: O(sqrt(A)), but much faster for composite numbers
  * Space Complexity: O(1)
  */
 function countFactors(A) {
-    let count = 0;
-    for (let i = 1; i * i <= A; i++) {
-        if (A % i === 0) {
-            if (i * i === A) {
-                // Perfect square case (e.g., 5*5=25), count factor only once
-                count += 1;
-            } else {
-                // Factor pair case (e.g., 2*5=10), count both factors
-                count += 2;
+    if (A === 1) return 1;
+
+    let totalFactors = 1;
+    let temp = A;
+
+    // Trial division for prime factorization
+    for (let i = 2; i * i <= temp; i++) {
+        if (temp % i === 0) {
+            let count = 0;
+            while (temp % i === 0) {
+                count++;
+                temp /= i;
             }
+            totalFactors *= (count + 1);
         }
     }
-    return count;
+
+    // If temp > 1, the remaining temp is a prime factor
+    if (temp > 1) {
+        totalFactors *= 2;
+    }
+
+    return totalFactors;
 }
 
 // ============================================

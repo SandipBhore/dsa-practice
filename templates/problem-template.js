@@ -1,4 +1,9 @@
 /**
+ * Run this problem:
+ * node problems/DSA[X]/[problem-name].js
+ */
+
+/**
  * PROBLEM TEMPLATE
  * 
  * Copy this file to create new problems:

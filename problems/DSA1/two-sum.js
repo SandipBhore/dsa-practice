@@ -1,4 +1,9 @@
 /**
+ * Run this problem:
+ * node problems/DSA1/two-sum.js
+ */
+
+/**
  * Problem: Two Sum
  * Difficulty: Easy
  * Category: Arrays

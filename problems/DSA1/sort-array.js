@@ -1,4 +1,9 @@
 /**
+ * Run this problem:
+ * node problems/DSA1/sort-array.js
+ */
+
+/**
  * Problem: Sort an Array
  * Difficulty: Medium
  * Category: Sorting
