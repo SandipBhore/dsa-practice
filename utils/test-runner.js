@@ -211,8 +211,8 @@ function runTests({
         if (currentComplexity || optimalComplexity) {
             console.log(`${colors.blue}Complexity Analysis:${colors.reset}`);
 
-            const timeInfo = `Time Complexity:  Current ${colors.green}${currentComplexity?.time || 'N/A'}${colors.reset} | Optimal ${colors.green}${optimalComplexity?.time || 'N/A'}${colors.reset}`;
-            const spaceInfo = `Space Complexity: Current ${colors.green}${currentComplexity?.space || 'N/A'}${colors.reset} | Optimal ${colors.green}${optimalComplexity?.space || 'N/A'}${colors.reset}`;
+            const timeInfo = `${colors.green}Time Complexity:  Current ${currentComplexity?.time || 'N/A'} | Optimal ${optimalComplexity?.time || 'N/A'}${colors.reset}`;
+            const spaceInfo = `${colors.green}Space Complexity: Current ${currentComplexity?.space || 'N/A'} | Optimal ${optimalComplexity?.space || 'N/A'}${colors.reset}`;
 
             console.log(timeInfo);
             console.log(spaceInfo);
