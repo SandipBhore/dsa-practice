@@ -125,11 +125,8 @@ function twoSumHashMap(nums, target) {
     return [];
 }
 
-// ============================================
-// RUN TESTS
-// ============================================
-const { runTests } = require('../../../utils/test-runner');
-const { testCases, validator } = require('../../../utils/DSA1/arrays/two-sum');
+const { runTests } = require('../../utils/test-runner');
+const { testCases, validator } = require('../../utils/DSA1/two-sum');
 
 runTests({
     problemName: "Two Sum",

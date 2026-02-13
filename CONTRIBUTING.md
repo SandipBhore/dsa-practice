@@ -10,21 +10,14 @@ Thank you for your interest in contributing! This document provides guidelines f
 
 ## 🆕 Adding New Problems
 
-### Step 1: Choose the Right Category
-Place your problem in the appropriate folder:
-- `problems/arrays/` - Array manipulation
-- `problems/strings/` - String operations
-- `problems/linked-lists/` - Linked list operations
-- `problems/trees/` - Tree traversal and operations
-- `problems/graphs/` - Graph algorithms
-- `problems/dynamic-programming/` - DP problems
-- `problems/sorting/` - Sorting algorithms
-- `problems/searching/` - Search algorithms
+### Step 1: Add to DSA Folder
+Place your problem directly in the `problems/DSA[X]/` folder.
+- `problems/DSA1/` - Current problem set
 
 ### Step 2: Use the Template
 ```bash
 # Copy the template
-cp templates/problem-template.js problems/DSA1/[category]/[problem-name].js
+cp templates/problem-template.js problems/DSA1/[problem-name].js
 ```
 
 ### Step 3: Fill in the Problem Details
@@ -55,7 +48,7 @@ cp templates/problem-template.js problems/DSA1/[category]/[problem-name].js
 - **Include alternatives** - Different approaches for learning
 
 ### Step 5: Add Test Cases
-Include test cases in a separate file under `utils/DSA1/[category]/[problem-name].js`:
+Include test cases in a separate file under `utils/DSA1/[problem-name].js`:
 
 ```javascript
 const testCases = [

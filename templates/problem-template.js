@@ -73,13 +73,13 @@ function solution2(input) {
 // ============================================
 /**
  * Test cases are now located in:
- * utils/DSA1/[category]/[problem-name].js
+ * utils/DSA[X]/[problem-name].js
  * 
- * 1. Copy an existing test case file or create a new one
+ * 1. Create a test case file in utils/DSA1/
  * 2. Update the require path below
  */
-const { runTests } = require('../../../utils/test-runner');
-const { testCases, validator } = require('../../../utils/DSA1/[TODO: Category]/[TODO: Name]');
+const { runTests } = require('../../utils/test-runner');
+const { testCases, validator } = require('../../utils/DSA1/[TODO: Name]');
 
 runTests({
     problemName: "[TODO: Name]",

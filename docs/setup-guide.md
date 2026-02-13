@@ -205,24 +205,24 @@ Production-ready repository for practicing Data Structures and Algorithms.
 ## Structure
 ```
 dsa-practice/
-├── problems/    # DSA problems by category
-│   └── DSA1/   # Main problem set
+├── problems/    # DSA problems
+│   └── DSA1/   # Flat problem set
 ├── utils/       # Test runner
-│   └── DSA1/   # Externalized test cases
+│   └── DSA1/   # Flat test cases
 └── templates/   # Problem templates
 ```
 
 ## Usage
 ```bash
 # Run tests
-node problems/DSA1/arrays/two-sum.js
+node problems/DSA1/two-sum.js
 ```
 
 ## Adding Problems
 ```bash
-cp templates/problem-template.js problems/DSA1/category/problem.js
+cp templates/problem-template.js problems/DSA1/problem.js
 # Edit file, then run:
-node problems/DSA1/category/problem.js
+node problems/DSA1/problem.js
 ```
 ```
 

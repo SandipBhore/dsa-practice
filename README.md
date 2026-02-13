@@ -6,14 +6,11 @@ A production-ready repository for practicing Data Structures and Algorithms with
 
 ```
 dsa-practice/
-├── problems/              # All DSA problems organized by category
-│   └── DSA1/             # Main DSA problem set
-│       ├── arrays/       # Array-based problems
-│       ├── strings/      # String manipulation problems
-│       └── ...           # Other categories
+├── problems/              # All DSA problems
+│   └── DSA1/             # Flattened problem set (no subfolders)
 ├── templates/            # Template files for new problems
 ├── utils/                # Helper utilities
-│   ├── DSA1/             # Test cases for DSA1 problems
+│   ├── DSA1/             # Flattened test cases
 │   └── test-runner.js    # Core test runner
 ├── docs/                 # Additional documentation
 └── README.md            # This file
@@ -74,7 +71,7 @@ function solveProblem(input) {
 ### 4. Run Tests
 ```bash
 # Test a specific problem
-node problems/DSA1/arrays/two-sum.js
+node problems/DSA1/two-sum.js
 
 # Note: Test cases are now located in utils/DSA1/
 ```

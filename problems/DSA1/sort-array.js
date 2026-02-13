@@ -222,11 +222,8 @@ function partition(arr, low, high) {
     return i + 1;
 }
 
-// ============================================
-// RUN TESTS
-// ============================================
-const { runTests } = require('../../../utils/test-runner');
-const { testCases, validator } = require('../../../utils/DSA1/sorting/sort-array');
+const { runTests } = require('../../utils/test-runner');
+const { testCases, validator } = require('../../utils/DSA1/sort-array');
 
 runTests({
     problemName: "Sort an Array",
