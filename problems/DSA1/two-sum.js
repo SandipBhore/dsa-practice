@@ -130,14 +130,35 @@ function twoSumHashMap(nums, target) {
     return [];
 }
 
+// ============================================
+// RUN TESTS
+// ============================================
 const { runTests } = require('../../utils/test-runner');
 const { testCases, validator } = require('../../utils/DSA1/two-sum');
 
-runTests({
-    problemName: "Two Sum",
-    solution: twoSumHashMap, // Change to twoSumBruteForce to test other solution
-    testCases: testCases,
-    validator: validator,
-    currentComplexity: { time: 'O(n)', space: 'O(n)' },
-    optimalComplexity: { time: 'O(n)', space: 'O(n)' }
-});
+if (require.main === module) {
+    // 1. Run Automated Test Runner
+    runTests({
+        problemName: "Two Sum",
+        solution: twoSumHashMap, // Change to twoSumBruteForce to test other solution
+        testCases: testCases,
+        validator: validator,
+        currentComplexity: { time: 'O(n)', space: 'O(n)' },
+        optimalComplexity: { time: 'O(n)', space: 'O(n)' }
+    });
+
+    // 2. Dummy Data Execution Block (Visual Check)
+    console.log("\n--- Standalone Execution ---");
+    const dummyInput = [2, 7, 11, 15];
+    const dummyTarget = 9;
+    console.log("Input:", dummyInput, "Target:", dummyTarget);
+    console.log("Output:", twoSumHashMap(dummyInput, dummyTarget));
+}
+
+module.exports = { twoSumHashMap };
+
+/*
+ * Educational Summary:
+ * - Map: In JavaScript, `new Map()` provides O(1) average time complexity for set/get operations.
+ * - Hash Map Approach: Stores visited numbers to check if the 'complement' exists, solving the problem in a single pass O(N).
+ */

@@ -227,14 +227,35 @@ function partition(arr, low, high) {
     return i + 1;
 }
 
+// ============================================
+// RUN TESTS
+// ============================================
 const { runTests } = require('../../utils/test-runner');
 const { testCases, validator } = require('../../utils/DSA1/sort-array');
 
-runTests({
-    problemName: "Sort an Array",
-    solution: sortArrayMergeSort, // Change to test different solutions
-    testCases: testCases,
-    validator: validator,
-    currentComplexity: { time: 'O(n log n)', space: 'O(n)' },
-    optimalComplexity: { time: 'O(n log n)', space: 'O(n)' }
-});
+if (require.main === module) {
+    // 1. Run Automated Test Runner
+    runTests({
+        problemName: "Sort an Array",
+        solution: sortArrayMergeSort, // Using Merge Sort as default optimal solution
+        testCases: testCases,
+        validator: validator,
+        currentComplexity: { time: 'O(n log n)', space: 'O(n)' },
+        optimalComplexity: { time: 'O(n log n)', space: 'O(n)' }
+    });
+
+    // 2. Dummy Data Execution Block (Visual Check)
+    console.log("\n--- Standalone Execution ---");
+    const dummyInput = [5, 2, 3, 1];
+    console.log("Input:", dummyInput);
+    console.log("Output:", sortArrayMergeSort([...dummyInput])); // Pass copy to preserve input for logging if needed
+}
+
+module.exports = { sortArrayMergeSort };
+
+/*
+ * Educational Summary:
+ * - Merge Sort: A classic O(N log N) recursive sorting algorithm. 
+ *   It has O(N) space complexity due to creating new arrays during formatting/merging phases.
+ * - Array.prototype.sort(): Built-in sort is highly optimized (TimSort) and generally preferred in production unless a specific stable/custom behavior is needed without overhead.
+ */

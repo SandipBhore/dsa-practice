@@ -60,17 +60,36 @@ function countFactors(A) {
     return totalFactors;
 }
 
+
+
 // ============================================
 // RUN TESTS
 // ============================================
 const { runTests } = require('../../utils/test-runner');
 const { testCases, validator } = require('../../utils/DSA1/1.count-factors');
 
-runTests({
-    problemName: "Count Factors",
-    solution: countFactors,
-    testCases: testCases,
-    validator: validator,
-    currentComplexity: { time: 'O(sqrt(A))', space: 'O(1)' },
-    optimalComplexity: { time: 'O(sqrt(A))', space: 'O(1)' }
-});
+if (require.main === module) {
+    // 1. Run Automated Test Runner
+    runTests({
+        problemName: "Count Factors",
+        solution: countFactors,
+        testCases: testCases,
+        validator: validator,
+        currentComplexity: { time: 'O(sqrt(A))', space: 'O(1)' },
+        optimalComplexity: { time: 'O(sqrt(A))', space: 'O(1)' }
+    });
+
+    // 2. Dummy Data Execution Block (Visual Check)
+    console.log("\n--- Standalone Execution ---");
+    const dummyInput = 10;
+    console.log("Input:", dummyInput);
+    console.log("Output:", countFactors(dummyInput));
+}
+
+module.exports = { countFactors };
+
+/*
+ * Educational Summary:
+ * - Prime Factorization: Calculating factors by finding prime components.
+ *   Uses trial division up to sqrt(A). The approach is efficient for most standard integer sizes (up to 10^9 or 10^12).
+ */
