@@ -1,13 +1,13 @@
 /**
  * Run:
- * & "C:\Program Files\Java\jdk-25.0.2\bin\javac.exe" problems/DSA1/CountFactors.java
- * & "C:\Program Files\Java\jdk-25.0.2\bin\java.exe" problems.DSA1.CountFactors
+ * & "C:\Program Files\Java\jdk-25.0.2\bin\javac.exe" problems/DSA1/1.basic/1.CountFactors.java
+ * & "C:\Program Files\Java\jdk-25.0.2\bin\java.exe" problems.DSA1.basic.CountFactors
  * 
  * NOTE: Java is a compiled language. 
  * - When you modify this .java file, you MUST re-run 'javac' to update the .class file (bytecode).
  * - Running the code executes the .class file, not the .java file directly.
  */
-package problems.DSA1;
+package problems.DSA1.basic;
 
 /**
  * Problem: Count Factors
@@ -60,7 +60,7 @@ public class CountFactors {
 
 /*
  * Educational Summary:
- * - Iterating up to sqrt(A): A fundamental Number Theory technique. 
- *   If A = x * y, then at least one of x or y must be <= sqrt(A).
- *   This allows us to find all factor pairs by checking only up to sqrt(A), reducing time from O(A) to O(sqrt(A)).
+ * 1. Iterating up to sqrt(A): A fundamental number theory technique. If A = x * y, then at least one 
+ *    of x or y must be <= sqrt(A). This allows finding all factors in O(sqrt(A)) time.
+ * 2. Perfect Squares: Special handling is needed when i * i == A to avoid counting the same factor twice.
  */

@@ -23,6 +23,7 @@ This repository serves as:
 - ✅ **Learning Resource**: Comprehensive comments explaining every concept
 - ✅ **Interview Prep**: Industry-standard problems with multiple solutions
 - ✅ **Portfolio Project**: Demonstrates professional coding practices
+- ✅ **Standardized**: [Formal Coding Standards](docs/CODING_STANDARDS.md) for all solutions
 
 ## 🚦 Getting Started
 
@@ -184,7 +185,8 @@ The repository includes an automated test runner that:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
 - Adding new problems
-- Code style standards
+- Adding new problems
+- [Code style standards](docs/CODING_STANDARDS.md) (Compulsory)
 - Commit message conventions
 - Pull request process
 

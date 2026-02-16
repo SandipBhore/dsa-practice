@@ -84,7 +84,7 @@ function solution1(A) {
     // Note: copy array to avoid mutating input if that's a concern, though usually fine in CP
     // A.sort((a, b) => b - a); 
     // Creating a copy to be safe and pure
-    const sortedA = [...A].sort((a, b) => b - a);
+    const sortedA = [...A].sort((a, b) => b - a); // Time: O(N log N) | Space: O(N) (TimSort)
 
     let totalCost = 0;
     for (let i = 0; i < sortedA.length; i++) {
@@ -125,7 +125,7 @@ module.exports = { solution1 };
 
 /*
  * Educational Summary:
- * - Array.prototype.sort(): In V8 (Chrome/Node), this typically uses TimSort. 
- *   Time Complexity: O(N log N). Space Complexity: O(N) due to creating a new array [...A] to avoid mutation.
- *   Note: In-place sort would be O(1) space but modifies input.
+ * 1. Array.prototype.sort(): In JavaScript (V8/Node), this uses TimSort. Time Complexity is O(N log N).
+ * 2. Spread Operator [...A]: Creates a shallow copy of the array. Time Complexity is O(N). Space is O(N).
+ * 3. Greedy Logic: Removing elements in descending order ensures the largest elements contribute to the cost only once.
  */

@@ -36,7 +36,7 @@ if (-not (Test-Path $ProblemFile)) {
     exit 1
 }
 
-# Extract package and class name from file content
+# Extract package and class name from file content (ignoring comments)
 $Content = Get-Content $ProblemFile -Raw
 if ($Content -match 'package\s+([\w\.]+);') {
     $Package = $matches[1]
@@ -44,7 +44,8 @@ if ($Content -match 'package\s+([\w\.]+);') {
     $Package = ""
 }
 
-if ($Content -match 'class\s+([\w]+)') {
+# Match 'class ClassName {' or 'class ClassName' at the start of a line (ignoring whitespace)
+if ($Content -match '(?m)^\s*(?:public\s+)?class\s+([\w]+)') {
     $ClassName = $matches[1]
 } else {
     Write-Error "Could not determine class name from file."

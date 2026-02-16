@@ -32,7 +32,7 @@ class CostToRemoveElements {
 
         // Sort ascending: [Smallest, ..., Largest]
         // Time: O(N log N) | Space: O(log N) (Dual-Pivot Quicksort)
-        Arrays.sort(A);
+        Arrays.sort(A); // Time: O(N log N) | Space: O(log N)
         
         int n = A.length;
         int totalCost = 0;
@@ -68,6 +68,7 @@ class CostToRemoveElements {
 
 /*
  * Educational Summary:
- * - Arrays.sort(int[]): Uses Dual-Pivot Quicksort. Time Complexity is O(N log N). Space is O(log N).
- * - Greedy Approach: Sorting ensures we multiply larger numbers by smaller coefficients to minimize sum.
+ * 1. Arrays.sort(int[]): Uses Dual-Pivot Quicksort. Time Complexity is O(N log N). Space is O(log N).
+ * 2. Greedy Approach: To minimize cost, we multiply larger numbers by smaller coefficients.
+ *    Sorting ascending allows us to remove smaller elements last (highest coefficients).
  */
